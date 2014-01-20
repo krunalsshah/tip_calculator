@@ -5,6 +5,7 @@ import java.text.DecimalFormat;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -24,6 +25,7 @@ public class MainActivity extends Activity {
 	private Button mBtnTwenty;
 	private Button mBtnCustom;
 	private TextView mTvTotalTipAmtLbl;
+	private double mCurrentTipPercent = 0;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +66,9 @@ public class MainActivity extends Activity {
 
 			@Override
 			public void afterTextChanged(Editable s) {
-
+				if(mCurrentTipPercent > 0){
+					showTipAmount(computeTipAmount(mCurrentTipPercent));
+				}
 			}
 		});
 
@@ -72,6 +76,10 @@ public class MainActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
+				mBtnTen.setBackgroundColor(Color.DKGRAY);
+				mBtnFifteen.setBackgroundColor(Color.GRAY);
+				mBtnTwenty.setBackgroundColor(Color.GRAY);
+				mBtnCustom.setBackgroundColor(Color.GRAY);
 				showTipAmount(computeTipAmount(10));
 			}
 		});
@@ -80,13 +88,22 @@ public class MainActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
+				mBtnTen.setBackgroundColor(Color.GRAY);
+				mBtnFifteen.setBackgroundColor(Color.DKGRAY);
+				mBtnTwenty.setBackgroundColor(Color.GRAY);
+				mBtnCustom.setBackgroundColor(Color.GRAY);
 				showTipAmount(computeTipAmount(15));
 			}
 		});
+		
 		mBtnTwenty.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
+				mBtnTen.setBackgroundColor(Color.GRAY);
+				mBtnFifteen.setBackgroundColor(Color.GRAY);
+				mBtnTwenty.setBackgroundColor(Color.DKGRAY);
+				mBtnCustom.setBackgroundColor(Color.GRAY);
 				showTipAmount(computeTipAmount(20));
 			}
 		});
@@ -95,8 +112,10 @@ public class MainActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
-
+				mBtnTen.setBackgroundColor(Color.GRAY);
+				mBtnFifteen.setBackgroundColor(Color.GRAY);
+				mBtnTwenty.setBackgroundColor(Color.GRAY);
+				mBtnCustom.setBackgroundColor(Color.DKGRAY);
 			}
 		});
 	}
@@ -113,13 +132,19 @@ public class MainActivity extends Activity {
 			findViewById(R.id.llTotalTipAmt).setVisibility(View.VISIBLE);
 			mTvTotalTipAmtLbl.setText(getText(R.string.dollar) + " " + tipAmt);
 		}else{
+			hideTipAmount();
 			Toast.makeText(this, getText(R.string.user_enter_bill_amt), Toast.LENGTH_SHORT).show();
 		}
+	}
+	
+	private void hideTipAmount(){
+		findViewById(R.id.llTotalTipAmt).setVisibility(View.GONE);
 	}
 
 	private String computeTipAmount(final double tipPercent) {
 		String billAmountStr = mEtTotalBillAmount.getText().toString();
 		if (!(billAmountStr == null) && !(billAmountStr.isEmpty())) {
+			mCurrentTipPercent = tipPercent;
 			return tipAmountFormatter(Double.parseDouble(billAmountStr) * (tipPercent / 100));
 		}
 		return "";

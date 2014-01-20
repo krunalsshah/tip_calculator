@@ -19,7 +19,6 @@
         android:ems="10"
         android:hint="@string/bill_amt"
         android:inputType="numberDecimal" >
-
     </EditText>
 
     <LinearLayout
@@ -37,6 +36,7 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginRight="2dp"
             android:layout_weight="0.75"
             android:gravity="left|center_vertical"
             android:text="@string/ten_perct" />
@@ -46,6 +46,7 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginRight="2dp"
             android:layout_weight="0.75"
             android:gravity="left|center_vertical"
             android:text="@string/fifteen_perct" />
@@ -55,6 +56,7 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginRight="2dp"
             android:layout_weight="0.75"
             android:gravity="left|center_vertical"
             android:text="@string/twenty_perct" />
