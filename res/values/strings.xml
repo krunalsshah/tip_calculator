@@ -10,7 +10,11 @@
     <string name="fifteen_perct">15%</string>
     <string name="twenty_perct">20%</string>
     <string name="tip_is">Tip is: </string>
-    <string name="custom">Custom</string>
+    <string name="cutom_tip_dialog">Custom Tip Dialog</string>
     <string name="user_enter_bill_amt">Please enter the total bill amount</string>
+    <string name="tip_percent">Tip Percent</string>
+    <string name="custom">Custom</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
 
 </resources>
