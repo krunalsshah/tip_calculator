@@ -17,9 +17,9 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="50dp"
         android:ems="10"
-        android:hint="@string/bill_amt" >
+        android:hint="@string/bill_amt"
+        android:inputType="numberDecimal" >
 
-        <requestFocus />
     </EditText>
 
     <LinearLayout
