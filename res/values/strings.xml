@@ -4,5 +4,12 @@
     <string name="app_name">TipCalculator</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="dollar">$</string>
+    <string name="bill_amt">Total Bill Amount</string>
+    <string name="ten_perct">10%</string>
+    <string name="fifteen_perct">15%</string>
+    <string name="twenty_perct">20%</string>
+    <string name="tip_is">Tip is: </string>
+    <string name="custom">Custom</string>
 
 </resources>
